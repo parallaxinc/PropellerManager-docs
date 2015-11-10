@@ -25,6 +25,25 @@ docurl: /projects/propellermanager/
 </div><!--header-->
 <div class="contents">
 <p>This example queries all available ports for connected Propeller devices.</p>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;QCoreApplication&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#include &lt;PropellerManager&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;PropellerLoader&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
+<div class="line">{</div>
+<div class="line">    QCoreApplication app(argc, argv);</div>
+<div class="line"></div>
+<div class="line">    <a name="_a0"></a><a class="code" href="class_propeller_manager.html">PropellerManager</a> manager;</div>
+<div class="line">    <span class="keywordflow">foreach</span> (QString d, manager.<a name="a1"></a><a class="code" href="class_propeller_manager.html#a5224b7c35e4dfcb8968735f3baa8599e">listPorts</a>())</div>
+<div class="line">    {</div>
+<div class="line">        <a name="_a2"></a><a class="code" href="class_propeller_loader.html">PropellerLoader</a> loader(&amp;manager, d);</div>
+<div class="line">        qDebug() &lt;&lt; d &lt;&lt; loader.<a name="a3"></a><a class="code" href="class_propeller_loader.html#a53fea8e928e1822b939d830c4811a4c6">version</a>();</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div><!-- contents -->
 </div>
 </div>

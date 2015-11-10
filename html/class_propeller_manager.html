@@ -138,12 +138,49 @@ session.write(data);
 <h3>Port Monitoring</h3>
 <p><a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a> enables you to monitor all available connections in the background of your application, and provides functions to update it in real-time.</p>
 <p>Enabling port monitoring in your application is simple. Here is an example Qt class with monitoring configured.</p>
-<div class="fragment"></div><!-- fragment --><p>And that's it! Now your application knows what Propeller devices are connected at any given time.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;PropellerManager&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keyword">class </span>PortMonitor</div>
+<div class="line">    : <span class="keyword">public</span> QObject</div>
+<div class="line">{</div>
+<div class="line">    Q_OBJECT</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_propeller_manager.html">PropellerManager</a> manager;</div>
+<div class="line">    QStringList ports;</div>
+<div class="line"></div>
+<div class="line"><span class="keyword">private</span> slots:</div>
+<div class="line">    <span class="keywordtype">void</span> updatePorts()</div>
+<div class="line">    {</div>
+<div class="line">        ports = manager.<a class="code" href="class_propeller_manager.html#a5224b7c35e4dfcb8968735f3baa8599e">listPorts</a>();</div>
+<div class="line">        qDebug() &lt;&lt; <span class="stringliteral">&quot;Ports:&quot;</span> &lt;&lt; ports;</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    PortMonitor()</div>
+<div class="line">        : QObject()</div>
+<div class="line">    {</div>
+<div class="line">        manager.enablePortMonitor(<span class="keyword">true</span>);</div>
+<div class="line">        updatePorts();</div>
+<div class="line"></div>
+<div class="line">        connect(&amp;manager, SIGNAL(<a class="code" href="class_propeller_manager.html#af4af3089117b2c68ebfdec41305b1cec">portListChanged</a>()), <span class="keyword">this</span>, SLOT(updatePorts()));</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    ~PortMonitor()</div>
+<div class="line">    {</div>
+<div class="line">        disconnect(&amp;manager, SIGNAL(<a class="code" href="class_propeller_manager.html#af4af3089117b2c68ebfdec41305b1cec">portListChanged</a>()), <span class="keyword">this</span>, SLOT(updatePorts()));</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">};</div>
+<div class="line"></div>
+</div><!-- fragment --><p>And that's it! Now your application knows what Propeller devices are connected at any given time.</p>
 <h3><a class="el" href="class_propeller_session.html" title="The PropellerSession class provides a persistent interface to Propeller hardware via PropellerManager...">PropellerSession</a> Interface</h3>
 <p>These functions implement the interface between <a class="el" href="class_propeller_session.html" title="The PropellerSession class provides a persistent interface to Propeller hardware via PropellerManager...">PropellerSession</a> and <a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a>.</p>
 <dl class="section warning"><dt>Warning</dt><dd>It is not recommended to use these functions directly. Use <a class="el" href="class_propeller_session.html" title="The PropellerSession class provides a persistent interface to Propeller hardware via PropellerManager...">PropellerSession</a> to interface with <a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a>.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="class_propeller_session.html" title="The PropellerSession class provides a persistent interface to Propeller hardware via PropellerManager...">PropellerSession</a> </dd></dl>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="download_2main_8cpp-example.html#_a0">download/main.cpp</a>, <a class="el" href="identify_2main_8cpp-example.html#_a0">identify/main.cpp</a>, <a class="el" href="portmonitor_2main_8cpp-example.html#_a0">portmonitor/main.cpp</a>, and <a class="el" href="terminal_2main_8cpp-example.html#_a0">terminal/main.cpp</a>.</dd>
+</dl></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1b5744a2d7705209e6be3477e166e3db"></a>
 <div class="memitem">
 <div class="memproto">
@@ -513,7 +550,8 @@ session.write(data);
       </table>
 </div><div class="memdoc">
 <p>Lists all available devices on the current system via any interface. </p>
-
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="download_2main_8cpp-example.html#a1">download/main.cpp</a>, <a class="el" href="identify_2main_8cpp-example.html#a1">identify/main.cpp</a>, <a class="el" href="portmonitor_2main_8cpp-example.html#a1">portmonitor/main.cpp</a>, and <a class="el" href="terminal_2main_8cpp-example.html#a1">terminal/main.cpp</a>.</dd>
+</dl>
 </div>
 </div>
 <a class="anchor" id="a9a21df7e9cc3b1bb1affe6f8177d2818"></a>
