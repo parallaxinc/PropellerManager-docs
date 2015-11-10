@@ -14,8 +14,10 @@ $( document ).ready(function() {
     $('li > a[href="functions_vars.html"] > span').before("<i class='glyphicon glyphicon-list'></i> ");
     $('li > a[href="functions_enum.html"] > span').before("<i class='glyphicon glyphicon-list'></i> ");
     $('li > a[href="functions_eval.html"] > span').before("<i class='glyphicon glyphicon-list'></i> ");
+
     $('img[src="ftv2ns.png"]').replaceWith('<span class="label label-danger">N</span> ');
     $('img[src="ftv2cl.png"]').replaceWith('<span class="label label-danger">C</span> ');
+    $("img").addClass("center-block");
 
     $("ul.tablist").addClass("nav nav-pills nav-justified");
     $("ul.tablist").css("margin-top", "0.5em");
@@ -24,6 +26,8 @@ $( document ).ready(function() {
     $("iframe").attr("scrolling", "yes");
 
     $("#nav-path > ul").addClass("breadcrumb");
+
+    $('dl[class="section warning"]').addClass('alert alert-danger');
 
     $("table.params").addClass("table");
     $("div.ingroups").wrapInner("<small></small>");

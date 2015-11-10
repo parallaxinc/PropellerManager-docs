@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: PropellerManager - Main Page
+title: PropellerManager - About PropellerManager
 doctitle: PropellerManager
 doctagline: An event-driven C++ API for Propeller devices
 docurl: /projects/propellermanager/
@@ -14,16 +14,91 @@ docurl: /projects/propellermanager/
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">PropellerManager Documentation</div>  </div>
+<div class="title">About <a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><p><a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a> works by acting as a signal router between <a class="el" href="class_propeller_session.html" title="The PropellerSession class provides a persistent interface to Propeller hardware via PropellerManager...">PropellerSession</a> and <a class="el" href="class_propeller_device.html" title="The PropellerDevice class provides access to serial Propeller devices. ">PropellerDevice</a> instances, and prevents these classes from interacting with each other directly.</p>
+<div class="image">
+<img src="manager_layers.png" alt="manager_layers.png"/>
+</div>
+<p>Sessions can communicate with any available device without needing to manually open and close ports. Many sessions can be connected to a single device at a time. However, sessions may also request exclusive access to a device to complete a long-running or time-critical operation.</p>
+<p>The <a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a> API consists of six main classes:</p>
+<ul>
+<li><a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a></li>
+<li><a class="el" href="class_propeller_session.html" title="The PropellerSession class provides a persistent interface to Propeller hardware via PropellerManager...">PropellerSession</a></li>
+<li><a class="el" href="class_propeller_loader.html" title="The PropellerLoader class provides an implementation of the Propeller download protocol. ">PropellerLoader</a></li>
+<li><a class="el" href="class_propeller_terminal.html" title="The PropellerTerminal class provides a minimal implementation of a PropellerManager-based terminal...">PropellerTerminal</a></li>
+<li><a class="el" href="class_propeller_device.html" title="The PropellerDevice class provides access to serial Propeller devices. ">PropellerDevice</a></li>
+<li><a class="el" href="class_propeller_image.html" title="The PropellerImage class encapsulates Propeller binary images. ">PropellerImage</a></li>
+</ul>
+<p><a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a> handles device and platform issues transparently, allowing you to deploy a <a class="el" href="namespace_propeller.html">Propeller</a> application in just a few lines of code.</p>
+<p>Here is an example of how quickly a loader application can be written.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;QCoreApplication&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;QFile&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#include &lt;PropellerManager&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;PropellerLoader&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;PropellerImage&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
+<div class="line">{</div>
+<div class="line">    QCoreApplication app(argc, argv);</div>
+<div class="line">    <a class="code" href="class_propeller_manager.html">PropellerManager</a> manager;</div>
+<div class="line"></div>
+<div class="line">    QStringList devices = manager.<a class="code" href="class_propeller_manager.html#a5224b7c35e4dfcb8968735f3baa8599e">listPorts</a>();</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> (devices.isEmpty())</div>
+<div class="line">    {</div>
+<div class="line">        qDebug() &lt;&lt; <span class="stringliteral">&quot;No device available for download!&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">return</span> 1;</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_propeller_loader.html">PropellerLoader</a> loader(&amp;manager, devices[0]);</div>
+<div class="line"></div>
+<div class="line">    QFile file(<span class="stringliteral">&quot;../../test/images/ls/ImAlive.binary&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> (!file.open(QIODevice::ReadOnly))</div>
+<div class="line">    {</div>
+<div class="line">        qDebug() &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t open file&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">return</span> 1;</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_propeller_image.html">PropellerImage</a> image = <a class="code" href="class_propeller_image.html">PropellerImage</a>(file.readAll());</div>
+<div class="line">    <span class="keywordflow">if</span> (!loader.upload(image));</div>
+<div class="line">        <span class="keywordflow">return</span> 1;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3>Opening and closing devices</h3>
+<p><a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a> handles device opening and closing by maintaining a count of sessions connected to each device. As long as the session count is greater than zero, a device will remain open.</p>
+<p>When no PropellerSessions are registered in <a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a>, all devices are released to the operating system.</p>
+<div class="image">
+<img src="session_empty.png" alt="session_empty.png"/>
+</div>
+<h3>Use of devices by multiple sessions</h3>
+<p>Sessions can communicate with any available device without the need to open and close ports or handle device errors. Many sessions can be connected to a single device at a time.</p>
+<div class="image">
+<img src="session_multiple.png" alt="session_multiple.png"/>
+</div>
+<p>This configuration allows multiple widgets to consume device output and do interesting things with it, or can be used to simplify the creation of interactive GUI applets.</p>
+<h3>Exclusive use</h3>
+<p>The <a class="el" href="class_propeller_session.html#a9a55dcf68fb79ef698061589e1fbab9c">PropellerSession::reserve()</a> and <a class="el" href="class_propeller_session.html#adcdd3e0ff930fdc50d4358407454d0ee">PropellerSession::release()</a> functions control are responsible for reserving devices for exclusive use. When a session requests exclusive access, all other sessions are notified and paused temporarily.</p>
+<p><a class="el" href="class_propeller_loader.html" title="The PropellerLoader class provides an implementation of the Propeller download protocol. ">PropellerLoader</a>, being a time-critical application, wants to be the only user when sending an image with <a class="el" href="class_propeller_loader.html#a9ffc3a12ff9669fde0dfe35653fbbfe4">PropellerLoader::upload()</a>, so it will reserve the port and release it at the end of the download.</p>
+<div class="image">
+<img src="session_loading.png" alt="session_loading.png"/>
+</div>
+<p>Upon releasing the device, all other attached devices will be able to resume sending data.</p>
+<h3>Read buffering</h3>
+<p>Each <a class="el" href="class_propeller_session.html" title="The PropellerSession class provides a persistent interface to Propeller hardware via PropellerManager...">PropellerSession</a> has its own copy of the device's read buffer for its own personal usage. Because of this, session applications should be developed as though they are the only</p>
+<div class="image">
+<img src="manager_buffers.png" alt="manager_buffers.png"/>
+</div>
+ </div></div><!-- contents -->
 </div>
 </div>
