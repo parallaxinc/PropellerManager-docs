@@ -3,7 +3,7 @@ layout: doc
 title: PropellerManager - PropellerDevice Class Reference
 doctitle: PropellerManager
 doctagline: An event-driven C++ API for Propeller devices
-docurl: /projects/propellermanager/
+docurl: /propellermanager/
 ---
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
     <div class="content" id="content">
@@ -49,10 +49,8 @@ docurl: /projects/propellermanager/
 Public Slots</h2></td></tr>
 <tr class="memitem:a76b23c9bb854939b6f480b54dad59dea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_propeller_device.html#a76b23c9bb854939b6f480b54dad59dea">handleError</a> (QSerialPort::SerialPortError e)</td></tr>
 <tr class="separator:a76b23c9bb854939b6f480b54dad59dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2193aecad07ac450e4efda1d87b898e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_propeller_device.html#a2193aecad07ac450e4efda1d87b898e8">writeBufferEmpty</a> ()</td></tr>
-<tr class="separator:a2193aecad07ac450e4efda1d87b898e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae46834a4b62a0c5147d3241f48b777f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_propeller_device.html#ae46834a4b62a0c5147d3241f48b777f4">timeOver</a> ()</td></tr>
-<tr class="separator:ae46834a4b62a0c5147d3241f48b777f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdd17cfb7684e8b59e7aec2a9d2aac12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_propeller_device.html#abdd17cfb7684e8b59e7aec2a9d2aac12">reset</a> ()</td></tr>
+<tr class="separator:abdd17cfb7684e8b59e7aec2a9d2aac12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
@@ -69,8 +67,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5a28296e7db77543a42df6f05d3f693a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73a40e6bb133e6670b99e4fe7b4ae624"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_propeller_device.html#a73a40e6bb133e6670b99e4fe7b4ae624">open</a> ()</td></tr>
 <tr class="separator:a73a40e6bb133e6670b99e4fe7b4ae624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdd17cfb7684e8b59e7aec2a9d2aac12"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_propeller_device.html#abdd17cfb7684e8b59e7aec2a9d2aac12">reset</a> ()</td></tr>
-<tr class="separator:abdd17cfb7684e8b59e7aec2a9d2aac12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0090f7e0f9ece7676ff3e1b96ce6b6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_propeller_device.html#ab0090f7e0f9ece7676ff3e1b96ce6b6a">useReset</a> (const QString &amp;name, int pin=17)</td></tr>
 <tr class="separator:ab0090f7e0f9ece7676ff3e1b96ce6b6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf2b601d9ffade1e8436cf82e92fb8d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_propeller_device.html#acf2b601d9ffade1e8436cf82e92fb8d1">useDefaultReset</a> ()</td></tr>
@@ -81,6 +77,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a508c7514bcbc7d75e421639a9ec1c420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa970a5feeecca0074d451d97cf5c430c"><td class="memItemLeft" align="right" valign="top">quint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_propeller_device.html#aa970a5feeecca0074d451d97cf5c430c">minimumTimeout</a> ()</td></tr>
 <tr class="separator:aa970a5feeecca0074d451d97cf5c430c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addf8b3253d707f04bd16c225f3104043"><td class="memItemLeft" align="right" valign="top">quint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_propeller_device.html#addf8b3253d707f04bd16c225f3104043">resetPeriod</a> ()</td></tr>
+<tr class="separator:addf8b3253d707f04bd16c225f3104043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cfd2e6295567838e362c1513787ff4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_propeller_device.html#a7cfd2e6295567838e362c1513787ff4a">setMinimumTimeout</a> (quint32 milliseconds)</td></tr>
 <tr class="separator:a7cfd2e6295567838e362c1513787ff4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -263,6 +261,9 @@ Static Public Member Functions</h2></td></tr>
 <a class="anchor" id="abdd17cfb7684e8b59e7aec2a9d2aac12"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool PropellerDevice::reset </td>
@@ -271,9 +272,29 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Reset your attached <a class="el" href="namespace_propeller.html">Propeller</a> hardware using the configured hardware reset.</p>
 <p>DTR is the default hardware reset on all PropellerIDE distributions, with the exception of Raspberry Pi, where it is GPIO reset. </p>
+
+</div>
+</div>
+<a class="anchor" id="addf8b3253d707f04bd16c225f3104043"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">quint32 PropellerDevice::resetPeriod </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -335,29 +356,6 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae46834a4b62a0c5147d3241f48b777f4"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PropellerDevice::timeOver </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="acf2b601d9ffade1e8436cf82e92fb8d1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -400,29 +398,6 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Set the reset strategy for your device. </p>
-
-</div>
-</div>
-<a class="anchor" id="a2193aecad07ac450e4efda1d87b898e8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void PropellerDevice::writeBufferEmpty </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>

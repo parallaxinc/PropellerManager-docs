@@ -3,7 +3,7 @@ layout: doc
 title: PropellerManager - propellermanager.h Source File
 doctitle: PropellerManager
 doctagline: An event-driven C++ API for Propeller devices
-docurl: /projects/propellermanager/
+docurl: /propellermanager/
 ---
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
     <div class="content" id="content">
@@ -19,7 +19,7 @@ docurl: /projects/propellermanager/
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a20aec8ece1f55e78e59406218e639b0.html">manager</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_e69a633abef3b1b6b70f0b48749a3197.html">PropellerIDE</a></li><li class="navelem"><a class="el" href="dir_ffe9abedf1f36371ba520a9efb39a7e1.html">src</a></li><li class="navelem"><a class="el" href="dir_921e3d6459e48c1e93995132dd1cd790.html">propellermanager</a></li><li class="navelem"><a class="el" href="dir_e713621cd6586fc83d1c627ff2ff1684.html">src</a></li><li class="navelem"><a class="el" href="dir_56f3dfb373589df53f35baaf7ff79f71.html">manager</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -63,7 +63,7 @@ docurl: /projects/propellermanager/
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> detach(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <a class="code" href="class_propeller_device.html">PropellerDevice</a> * device);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">bool</span> portIsBusy(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <span class="keyword">const</span> QString &amp; name);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="class_propeller_device.html">PropellerDevice</a> * getDevice(<span class="keyword">const</span> QString &amp; port);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="class_propeller_device.html">PropellerDevice</a> * getDevice(<span class="keyword">const</span> QString &amp; port, <span class="keywordtype">bool</span> open = <span class="keyword">true</span>);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">void</span> deleteDevice(<span class="keyword">const</span> QString &amp; port);</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">private</span> slots:</div>
@@ -103,21 +103,22 @@ docurl: /projects/propellermanager/
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">void</span>        useReset(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <span class="keyword">const</span> QString &amp; port, <span class="keyword">const</span> QString &amp; name, <span class="keywordtype">int</span> pin);</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">void</span>        useDefaultReset(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <span class="keyword">const</span> QString &amp; port);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">bool</span>        reset(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <span class="keyword">const</span> QString &amp; port);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordtype">bool</span>        reserve(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <span class="keyword">const</span> QString &amp; port);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">bool</span>        isReserved(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <span class="keyword">const</span> QString &amp; port);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">void</span>        release(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <span class="keyword">const</span> QString &amp; port);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordtype">void</span>        pause(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session);</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">bool</span>        isPaused(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session);</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">void</span>        unpause(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;signals:</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_propeller_manager.html#af4af3089117b2c68ebfdec41305b1cec">portListChanged</a>();</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;};</div>
-<div class="ttc" id="class_propeller_manager_html_a5224b7c35e4dfcb8968735f3baa8599e"><div class="ttname"><a href="class_propeller_manager.html#a5224b7c35e4dfcb8968735f3baa8599e">PropellerManager::listPorts</a></div><div class="ttdeci">const QStringList &amp; listPorts()</div><div class="ttdef"><b>Definition:</b> propellermanager.cpp:166</div></div>
-<div class="ttc" id="class_propeller_manager_html_ab0b29937651263276e71fb2c79b53aed"><div class="ttname"><a href="class_propeller_manager.html#ab0b29937651263276e71fb2c79b53aed">PropellerManager::enablePortMonitor</a></div><div class="ttdeci">void enablePortMonitor(bool enabled)</div><div class="ttdef"><b>Definition:</b> propellermanager.cpp:171</div></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    quint32     resetPeriod(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <span class="keyword">const</span> QString &amp; port);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keywordtype">bool</span>        reserve(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <span class="keyword">const</span> QString &amp; port);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">bool</span>        isReserved(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <span class="keyword">const</span> QString &amp; port);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordtype">void</span>        release(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session, <span class="keyword">const</span> QString &amp; port);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">void</span>        pause(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">bool</span>        isPaused(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordtype">void</span>        unpause(<a class="code" href="class_propeller_session.html">PropellerSession</a> * session);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;signals:</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_propeller_manager.html#af4af3089117b2c68ebfdec41305b1cec">portListChanged</a>();</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;};</div>
+<div class="ttc" id="class_propeller_manager_html_a5224b7c35e4dfcb8968735f3baa8599e"><div class="ttname"><a href="class_propeller_manager.html#a5224b7c35e4dfcb8968735f3baa8599e">PropellerManager::listPorts</a></div><div class="ttdeci">const QStringList &amp; listPorts()</div><div class="ttdef"><b>Definition:</b> propellermanager.cpp:160</div></div>
+<div class="ttc" id="class_propeller_manager_html_ab0b29937651263276e71fb2c79b53aed"><div class="ttname"><a href="class_propeller_manager.html#ab0b29937651263276e71fb2c79b53aed">PropellerManager::enablePortMonitor</a></div><div class="ttdeci">void enablePortMonitor(bool enabled)</div><div class="ttdef"><b>Definition:</b> propellermanager.cpp:165</div></div>
 <div class="ttc" id="class_propeller_manager_html_a789472b50332e2599078297c85277f6e"><div class="ttname"><a href="class_propeller_manager.html#a789472b50332e2599078297c85277f6e">PropellerManager::~PropellerManager</a></div><div class="ttdeci">~PropellerManager()</div><div class="ttdef"><b>Definition:</b> propellermanager.cpp:14</div></div>
 <div class="ttc" id="class_propeller_manager_html"><div class="ttname"><a href="class_propeller_manager.html">PropellerManager</a></div><div class="ttdoc">The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...</div><div class="ttdef"><b>Definition:</b> propellermanager.h:86</div></div>
 <div class="ttc" id="class_propeller_session_html"><div class="ttname"><a href="class_propeller_session.html">PropellerSession</a></div><div class="ttdoc">The PropellerSession class provides a persistent interface to Propeller hardware via PropellerManager...</div><div class="ttdef"><b>Definition:</b> propellersession.h:43</div></div>

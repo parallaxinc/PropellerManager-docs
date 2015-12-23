@@ -3,7 +3,7 @@ layout: doc
 title: PropellerManager - Class Members
 doctitle: PropellerManager
 doctagline: An event-driven C++ API for Propeller devices
-docurl: /projects/propellermanager/
+docurl: /propellermanager/
 ---
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
     <div class="content" id="content">
@@ -31,6 +31,7 @@ docurl: /projects/propellermanager/
       <li><a href="functions_func.html"><span>Functions</span></a></li>
       <li><a href="functions_enum.html"><span>Enumerations</span></a></li>
       <li><a href="functions_eval.html"><span>Enumerator</span></a></li>
+      <li><a href="functions_prop.html"><span>Properties</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
@@ -45,6 +46,7 @@ docurl: /projects/propellermanager/
       <li><a href="#index_i"><span>i</span></a></li>
       <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_n"><span>n</span></a></li>
       <li><a href="#index_o"><span>o</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
@@ -61,8 +63,8 @@ docurl: /projects/propellermanager/
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
-<li>allBytesWritten()
-: <a class="el" href="class_propeller_session.html#a58766b4922e28906ff1c366a7ab6b298">PropellerSession</a>
+<li>acknowledged()
+: <a class="el" href="class_propeller_loader.html#ac7615cd8f772a98ed5db589afa1342ed">PropellerLoader</a>
 </li>
 </ul>
 
@@ -119,8 +121,20 @@ docurl: /projects/propellermanager/
 <li>deviceBusy()
 : <a class="el" href="class_propeller_session.html#ae0daaa96bd7c308e81e49b9a3f3228c2">PropellerSession</a>
 </li>
+<li>DeviceBusyError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685a4c913b977de1b57decf576943e90dff1">PropellerLoader</a>
+</li>
 <li>deviceFree()
 : <a class="el" href="class_propeller_session.html#a311b5bfb906204e0f742479b68b9da04">PropellerSession</a>
+</li>
+<li>DeviceNotFoundError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685aed442ab7bc9209a3957e0469367d8865">PropellerLoader</a>
+</li>
+<li>DeviceNotOpenError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685afad54e9e9f72b946bb6ce31fb1c438b4">PropellerLoader</a>
+</li>
+<li>DownloadInProgressError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685ab0a983b9511a748f188f3ee19d4338cc">PropellerLoader</a>
 </li>
 </ul>
 
@@ -142,13 +156,15 @@ docurl: /projects/propellermanager/
 
 
 <h3><a class="anchor" id="index_f"></a>- f -</h3><ul>
+<li>failure()
+: <a class="el" href="class_propeller_loader.html#a957a80c8ef0203087c3966c347d67aa3">PropellerLoader</a>
+</li>
 <li>fileName()
 : <a class="el" href="class_propeller_image.html#ad2a55c0ea938fc8eb5b7d5cbe43396be">PropellerImage</a>
 </li>
 <li>finished()
 : <a class="el" href="class_propeller_device.html#a68bf1a41b3e41540a77f51b284477456">PropellerDevice</a>
 , <a class="el" href="class_propeller_loader.html#a52877d788d26957ab4af3f066706596e">PropellerLoader</a>
-, <a class="el" href="class_propeller_session.html#a1c8292dfffcef1c770ef2eaa70e66e13">PropellerSession</a>
 </li>
 </ul>
 
@@ -157,8 +173,11 @@ docurl: /projects/propellermanager/
 <li>handleError()
 : <a class="el" href="class_propeller_device.html#a76b23c9bb854939b6f480b54dad59dea">PropellerDevice</a>
 </li>
-<li>highSpeedUpload()
-: <a class="el" href="class_propeller_loader.html#af5cc0098e8ffa3a6ad72d8d31a87595c">PropellerLoader</a>
+<li>handshake_received()
+: <a class="el" href="class_propeller_loader.html#a8456860f5b8b5ad50791201ffcf048e3">PropellerLoader</a>
+</li>
+<li>HandshakeError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685a5cc3af44bec4095baa9af99784e16b70">PropellerLoader</a>
 </li>
 </ul>
 
@@ -178,6 +197,12 @@ docurl: /projects/propellermanager/
 </li>
 <li>Invalid
 : <a class="el" href="class_propeller_image.html#a5d6dcf94ae656814c5776fbe3147e867aab2bac6165c788db1f410bd629db2c72">PropellerImage</a>
+</li>
+<li>InvalidHandshakeError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685a76f9067e67b23cae75846652800be5c4">PropellerLoader</a>
+</li>
+<li>InvalidImageError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685a0c48057dd38635cb9dd5750b8ee5fe44">PropellerLoader</a>
 </li>
 <li>isOpen()
 : <a class="el" href="class_propeller_session.html#abf2786fd5a06236f6b018cd53578954c">PropellerSession</a>
@@ -201,6 +226,9 @@ docurl: /projects/propellermanager/
 <li>listPorts()
 : <a class="el" href="class_propeller_manager.html#a5224b7c35e4dfcb8968735f3baa8599e">PropellerManager</a>
 </li>
+<li>LoaderError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685">PropellerLoader</a>
+</li>
 </ul>
 
 
@@ -208,6 +236,13 @@ docurl: /projects/propellermanager/
 <li>minimumTimeout()
 : <a class="el" href="class_propeller_device.html#aa970a5feeecca0074d451d97cf5c430c">PropellerDevice</a>
 , <a class="el" href="class_propeller_session.html#af7e10da8df3b48d6a594897a18309d49">PropellerSession</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>NoError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685a342c1233a923663447208af321a0bd97">PropellerLoader</a>
 </li>
 </ul>
 
@@ -223,11 +258,17 @@ docurl: /projects/propellermanager/
 <li>pause()
 : <a class="el" href="class_propeller_session.html#a1b5154d7d4931ff2a64986c648af4b7b">PropellerSession</a>
 </li>
+<li>payload_sent()
+: <a class="el" href="class_propeller_loader.html#a91667d4047f71cd5ecb4bb8cbfab384e">PropellerLoader</a>
+</li>
 <li>portListChanged()
 : <a class="el" href="class_propeller_manager.html#af4af3089117b2c68ebfdec41305b1cec">PropellerManager</a>
 </li>
 <li>portName()
 : <a class="el" href="class_propeller_session.html#afada5dff5464fed7a196d8096ae2aed2">PropellerSession</a>
+</li>
+<li>prepared()
+: <a class="el" href="class_propeller_loader.html#a90fe0132353823c80fed38a36da0540f">PropellerLoader</a>
 </li>
 <li>programSize()
 : <a class="el" href="class_propeller_image.html#a24b766dd4607c167248a40d550c6a700">PropellerImage</a>
@@ -239,7 +280,7 @@ docurl: /projects/propellermanager/
 : <a class="el" href="class_propeller_image.html#adfa809aec9aee800d64501aa24de3eb9">PropellerImage</a>
 </li>
 <li>PropellerLoader()
-: <a class="el" href="class_propeller_loader.html#ac0c52d72d3faf76f92646943dc5f383f">PropellerLoader</a>
+: <a class="el" href="class_propeller_loader.html#aec8f60f5bb48455b902e08215abf917b">PropellerLoader</a>
 </li>
 <li>PropellerManager()
 : <a class="el" href="class_propeller_manager.html#a1b5744a2d7705209e6be3477e166e3db">PropellerManager</a>
@@ -288,6 +329,10 @@ docurl: /projects/propellermanager/
 : <a class="el" href="class_propeller_device.html#abdd17cfb7684e8b59e7aec2a9d2aac12">PropellerDevice</a>
 , <a class="el" href="class_propeller_session.html#abacaf9ed8cb575d6ced75a6125499969">PropellerSession</a>
 </li>
+<li>resetPeriod()
+: <a class="el" href="class_propeller_device.html#addf8b3253d707f04bd16c225f3104043">PropellerDevice</a>
+, <a class="el" href="class_propeller_session.html#a949998e4e65d99fc683bb5595fd27068">PropellerSession</a>
+</li>
 </ul>
 
 
@@ -328,28 +373,40 @@ docurl: /projects/propellermanager/
 <li>startOfVariables()
 : <a class="el" href="class_propeller_image.html#a076ad505dedab176ab30ffcc8dfa0bf7">PropellerImage</a>
 </li>
+<li>stat
+: <a class="el" href="class_propeller_loader.html#a4324605ecb8fd921fe0c89c8d36702d5">PropellerLoader</a>
+</li>
+<li>status
+: <a class="el" href="class_propeller_loader.html#a443b7dab102b71760ef99bd54043a281">PropellerLoader</a>
+</li>
+<li>statusChanged()
+: <a class="el" href="class_propeller_loader.html#a09dcd629fe2653cc7490c8d55c3aef24">PropellerLoader</a>
+</li>
+<li>success()
+: <a class="el" href="class_propeller_loader.html#a73765ed78580687e6d231c9a994499b1">PropellerLoader</a>
+</li>
 </ul>
 
 
 <h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
-<li>timeOver()
-: <a class="el" href="class_propeller_device.html#ae46834a4b62a0c5147d3241f48b777f4">PropellerDevice</a>
-</li>
-<li>timeover()
-: <a class="el" href="class_propeller_session.html#ab3e095bb74204268923f69fc9cff0971">PropellerSession</a>
-</li>
-<li>timeOver()
-: <a class="el" href="class_propeller_session.html#a81ea288184d0aeec85c377525f85eba2">PropellerSession</a>
+<li>TimeoutError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685a75800335c9b04b00ccabae42ca178093">PropellerLoader</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>UnknownError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685af9859a9e45e69cc95e17956565e5cee2">PropellerLoader</a>
+</li>
 <li>unpause()
 : <a class="el" href="class_propeller_session.html#a1c4558f6c35ca6939978d1a4609ff752">PropellerSession</a>
 </li>
 <li>upload()
-: <a class="el" href="class_propeller_loader.html#a9ffc3a12ff9669fde0dfe35653fbbfe4">PropellerLoader</a>
+: <a class="el" href="class_propeller_loader.html#ac9ca097742bf727f47ac93303193ebd2">PropellerLoader</a>
+</li>
+<li>upload_completed()
+: <a class="el" href="class_propeller_loader.html#a4bc5b5b8aa875cb5f82f5bd9f8202397">PropellerLoader</a>
 </li>
 <li>useDefaultReset()
 : <a class="el" href="class_propeller_device.html#acf2b601d9ffade1e8436cf82e92fb8d1">PropellerDevice</a>
@@ -366,8 +423,17 @@ docurl: /projects/propellermanager/
 <li>variableSize()
 : <a class="el" href="class_propeller_image.html#a25c72b4823e1f7b9536ad6bee04467f3">PropellerImage</a>
 </li>
+<li>VerifyEepromError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685aa9275c1bde29d35620efad1f67d5edcf">PropellerLoader</a>
+</li>
+<li>VerifyRamError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685a9151040857e3b33d0a693cadebab680e">PropellerLoader</a>
+</li>
 <li>version()
 : <a class="el" href="class_propeller_loader.html#a53fea8e928e1822b939d830c4811a4c6">PropellerLoader</a>
+</li>
+<li>versionString()
+: <a class="el" href="class_propeller_loader.html#af11a993e719b0ae405e5e98cf0954a32">PropellerLoader</a>
 </li>
 </ul>
 
@@ -376,12 +442,11 @@ docurl: /projects/propellermanager/
 <li>write()
 : <a class="el" href="class_propeller_session.html#a3e5ff0bab739893113501f9176475fb0">PropellerSession</a>
 </li>
-<li>writeBufferEmpty()
-: <a class="el" href="class_propeller_device.html#a2193aecad07ac450e4efda1d87b898e8">PropellerDevice</a>
-, <a class="el" href="class_propeller_session.html#a92e204374db4af1a19f3e79b192f116b">PropellerSession</a>
-</li>
 <li>writeByte()
 : <a class="el" href="class_propeller_image.html#ad8bd15db5db5c0dbee439b7f35f59d59">PropellerImage</a>
+</li>
+<li>WriteEepromError
+: <a class="el" href="class_propeller_loader.html#a419c44c48404300b288076f7184ec685a9f8b9dc20f37312e23dbb3c47e2240d2">PropellerLoader</a>
 </li>
 <li>writeLong()
 : <a class="el" href="class_propeller_image.html#a256e834a1c78281c233c255776bb38da">PropellerImage</a>
