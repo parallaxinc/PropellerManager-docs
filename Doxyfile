@@ -610,7 +610,7 @@ GENERATE_BUGLIST       = YES
 # the documentation.
 # The default value is: YES.
 
-GENERATE_DEPRECATEDLIST= YES
+GENERATE_DEPRECATEDLIST = YES
 
 # The ENABLED_SECTIONS tag can be used to enable conditional documentation
 # sections, marked by \if <section_label> ... \endif and \cond <section_label>
@@ -864,7 +864,7 @@ EXCLUDE_SYMBOLS        = Gpio Input Console ReadBuffer \
 # that contain example code fragments that are included (see the \include
 # command).
 
-EXAMPLE_PATH           = ../../../PropellerIDE/src/propellermanager/example
+EXAMPLE_PATH           = ../../../PropellerIDE/src/propellermanager/examples
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp and

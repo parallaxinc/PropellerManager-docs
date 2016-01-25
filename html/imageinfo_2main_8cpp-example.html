@@ -24,6 +24,48 @@ docurl: /propellermanager/
 </div><!--header-->
 <div class="contents">
 <p>Here we extract various pieces of information from a <a class="el" href="namespace_propeller.html">Propeller</a> binary image.</p>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;PropellerImage&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#include &lt;QFile&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (argc &lt; 2) <span class="keywordflow">return</span> 1;</div>
+<div class="line"></div>
+<div class="line">    QString filename = argv[1];</div>
+<div class="line">    QFile file(filename);</div>
+<div class="line">    <span class="keywordflow">if</span> (!file.open(QIODevice::ReadOnly))</div>
+<div class="line">        <span class="keywordflow">return</span> 1;</div>
+<div class="line"></div>
+<div class="line">    <a name="_a0"></a><a class="code" href="class_propeller_image.html">PropellerImage</a> image = <a class="code" href="class_propeller_image.html">PropellerImage</a>(file.readAll(),filename);</div>
+<div class="line"></div>
+<div class="line">    printf(<span class="stringliteral">&quot;             Image: %s\n&quot;</span>,          qPrintable(image.<a name="a1"></a><a class="code" href="class_propeller_image.html#ad2a55c0ea938fc8eb5b7d5cbe43396be">fileName</a>()));</div>
+<div class="line">    printf(<span class="stringliteral">&quot;              Type: %s\n&quot;</span>,          qPrintable(image.<a name="a2"></a><a class="code" href="class_propeller_image.html#a678f70a38a4e25653b8ede86c0c5ea07">imageTypeText</a>()));</div>
+<div class="line"></div>
+<div class="line">    printf(<span class="stringliteral">&quot;          Checksum: %u (%s)\n\n&quot;</span>,   image.<a name="a3"></a><a class="code" href="class_propeller_image.html#aa40c90c26076b7d2887e09f4b2465c32">checksum</a>(),</div>
+<div class="line">                                                image.<a name="a4"></a><a class="code" href="class_propeller_image.html#ac249ec1db3d87fa6ade1a791e6b459ff">checksumIsValid</a>() ? <span class="stringliteral">&quot;VALID&quot;</span> : <span class="stringliteral">&quot;INVALID&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">    printf(<span class="stringliteral">&quot;        Image size: %d\n&quot;</span>,          image.<a name="a5"></a><a class="code" href="class_propeller_image.html#a64afcf82ab4137ded852e81ecc354326">imageSize</a>());</div>
+<div class="line">    printf(<span class="stringliteral">&quot;      Program size: %d\n\n&quot;</span>,        image.<a name="a6"></a><a class="code" href="class_propeller_image.html#a24b766dd4607c167248a40d550c6a700">programSize</a>());</div>
+<div class="line"></div>
+<div class="line">    printf(<span class="stringliteral">&quot;     Start of code: %04X\n&quot;</span>,        image.<a name="a7"></a><a class="code" href="class_propeller_image.html#a6e5e07d2c13bee9153e8ac31b341b258">startOfCode</a>());</div>
+<div class="line">    printf(<span class="stringliteral">&quot;Start of variables: %04X\n&quot;</span>,        image.<a name="a8"></a><a class="code" href="class_propeller_image.html#a076ad505dedab176ab30ffcc8dfa0bf7">startOfVariables</a>());</div>
+<div class="line">    printf(<span class="stringliteral">&quot;    Start of stack: %04X\n\n&quot;</span>,      image.<a name="a9"></a><a class="code" href="class_propeller_image.html#a4004019dba00066b61605b59b683ae9f">startOfStackSpace</a>());</div>
+<div class="line"></div>
+<div class="line">    printf(<span class="stringliteral">&quot;         Code size: %04X\n&quot;</span>,        image.<a name="a10"></a><a class="code" href="class_propeller_image.html#a4be4330e8349236a1c62d04318b9abae">codeSize</a>());</div>
+<div class="line">    printf(<span class="stringliteral">&quot;     Variable size: %04X\n&quot;</span>,        image.<a name="a11"></a><a class="code" href="class_propeller_image.html#a25c72b4823e1f7b9536ad6bee04467f3">variableSize</a>());</div>
+<div class="line">    printf(<span class="stringliteral">&quot;   Free/stack size: %04X\n\n&quot;</span>,      image.<a name="a12"></a><a class="code" href="class_propeller_image.html#a880bf0a3aaa2fd4d3d2b872f6e443249">stackSize</a>());</div>
+<div class="line"></div>
+<div class="line">    printf(<span class="stringliteral">&quot;        Clock mode: %s\n&quot;</span>,          qPrintable(image.<a name="a13"></a><a class="code" href="class_propeller_image.html#abf0c44fc3dca928b1864b5bc346ca1f9">clockModeText</a>()));</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> (image.<a name="a14"></a><a class="code" href="class_propeller_image.html#a02da6195e6a2aff3aff66ab75e1ce185">clockMode</a>() != 0x00 &amp;&amp; </div>
+<div class="line">        image.<a class="code" href="class_propeller_image.html#a02da6195e6a2aff3aff66ab75e1ce185">clockMode</a>() != 0x01)</div>
+<div class="line"></div>
+<div class="line">        printf(<span class="stringliteral">&quot; Clock frequency: %i\n&quot;</span>,        image.<a name="a15"></a><a class="code" href="class_propeller_image.html#a6c564997c0969a159e67097fca000c1d">clockFrequency</a>());</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div><!-- contents -->
 </div>
 </div>

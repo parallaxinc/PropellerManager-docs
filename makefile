@@ -1,0 +1,2 @@
+all:
+	bash process.sh

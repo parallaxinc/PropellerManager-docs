@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: PropellerManager - About PropellerManager
+title: PropellerManager - Overview
 doctitle: PropellerManager
 doctagline: An event-driven C++ API for Propeller devices
 docurl: /propellermanager/
@@ -20,10 +20,14 @@ docurl: /propellermanager/
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">About <a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a> </div>  </div>
+<div class="title">Overview </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a> works by acting as a signal router between <a class="el" href="class_propeller_session.html" title="The PropellerSession class provides a persistent interface to Propeller hardware via PropellerManager...">PropellerSession</a> and <a class="el" href="class_propeller_device.html" title="The PropellerDevice class provides access to serial Propeller devices. ">PropellerDevice</a> instances, and prevents these classes from interacting with each other directly.</p>
+<div class="textblock"><ul>
+<li><a class="el" href="tutorials.html">Tutorials</a></li>
+<li><a class="el" href="faq.html">Frequently Asked Questions</a></li>
+</ul>
+<p><a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a> works by acting as a signal router between <a class="el" href="class_propeller_session.html" title="The PropellerSession class provides a persistent interface to Propeller hardware via PropellerManager...">PropellerSession</a> and <a class="el" href="class_propeller_device.html" title="The PropellerDevice class provides access to serial Propeller devices. ">PropellerDevice</a> instances, and prevents these classes from interacting with each other directly.</p>
 <div class="image">
 <img src="manager_layers.png" alt="manager_layers.png"/>
 </div>
@@ -39,7 +43,43 @@ docurl: /propellermanager/
 </ul>
 <p><a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a> handles device and platform issues transparently, allowing you to deploy a <a class="el" href="namespace_propeller.html">Propeller</a> application in just a few lines of code.</p>
 <p>Here is an example of how quickly a loader application can be written.</p>
-<div class="fragment"></div><!-- fragment --><h3>Opening and closing devices</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;QCoreApplication&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;QFile&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="preprocessor">#include &lt;PropellerManager&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;PropellerLoader&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;PropellerImage&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[])</div>
+<div class="line">{</div>
+<div class="line">    QCoreApplication app(argc, argv);</div>
+<div class="line">    <a class="code" href="class_propeller_manager.html">PropellerManager</a> manager;</div>
+<div class="line"></div>
+<div class="line">    QStringList devices = manager.<a class="code" href="class_propeller_manager.html#a5224b7c35e4dfcb8968735f3baa8599e">listPorts</a>();</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">if</span> (devices.isEmpty())</div>
+<div class="line">    {</div>
+<div class="line">        qDebug() &lt;&lt; <span class="stringliteral">&quot;No device available for download!&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">return</span> 1;</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_propeller_loader.html">PropellerLoader</a> loader(&amp;manager, devices[0]);</div>
+<div class="line"></div>
+<div class="line">    QFile file(<span class="stringliteral">&quot;../../test/images/ls/ImAlive.binary&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> (!file.open(QIODevice::ReadOnly))</div>
+<div class="line">    {</div>
+<div class="line">        qDebug() &lt;&lt; <span class="stringliteral">&quot;Couldn&#39;t open file&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">return</span> 1;</div>
+<div class="line">    }</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_propeller_image.html">PropellerImage</a> image = <a class="code" href="class_propeller_image.html">PropellerImage</a>(file.readAll());</div>
+<div class="line">    <span class="keywordflow">if</span> (!loader.upload(image))</div>
+<div class="line">        <span class="keywordflow">return</span> 1;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3>Opening and closing devices</h3>
 <p><a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a> handles device opening and closing by maintaining a count of sessions connected to each device. As long as the session count is greater than zero, a device will remain open.</p>
 <p>When no PropellerSessions are registered in <a class="el" href="class_propeller_manager.html" title="The PropellerManager class provides an abstraction layer between PropellerSession and PropellerDevice...">PropellerManager</a>, all devices are released to the operating system.</p>
 <div class="image">
